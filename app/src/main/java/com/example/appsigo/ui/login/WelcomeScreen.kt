@@ -71,10 +71,10 @@ fun WelcomeScreen(
 
         Spacer(Modifier.height(24.dp))
 
-        // Campo USUARIO con ícono
+        // Campo USUARIO con ícono (siempre en mayúsculas)
         OutlinedTextField(
             value = state.username,
-            onValueChange = vm::onUsernameChange,
+            onValueChange = { vm.onUsernameChange(it.uppercase()) }, // 👈 convierte a mayúsculas
             label = { Text("USUARIO") },
             leadingIcon = {
                 Icon(

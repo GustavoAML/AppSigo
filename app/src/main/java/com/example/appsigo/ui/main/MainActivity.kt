@@ -1,5 +1,6 @@
 package com.example.appsigo.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -7,6 +8,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -14,6 +16,7 @@ import androidx.compose.ui.unit.dp
 import com.example.appsigo.SigoLoginApplication
 import com.example.appsigo.ui.historial.HistorialScreen
 import com.example.appsigo.ui.login.LocalApp
+import com.example.appsigo.ui.login.LoginActivity
 import com.example.appsigo.ui.perfil.PerfilScreen
 import kotlinx.coroutines.launch
 
@@ -57,6 +60,17 @@ class MainActivity : ComponentActivity() {
                                         scope.launch { drawerState.close() }
                                     }
                                 )
+                                Spacer(Modifier.height(24.dp))
+                                NavigationDrawerItem(
+                                    label = { Text("CERRAR SESIÓN") },
+                                    selected = false,
+                                    onClick = {
+                                        scope.launch { drawerState.close() }
+                                        val intent = Intent(this@MainActivity, LoginActivity::class.java)
+                                        startActivity(intent)
+                                        finish()
+                                    }
+                                )
                             }
                         }
                     ) {
@@ -79,12 +93,21 @@ class MainActivity : ComponentActivity() {
                                     .padding(padding)
                                     .padding(16.dp)
                             ) {
+                                // Matricula + icono juntos en el lado derecho
                                 Row(
                                     Modifier.fillMaxWidth(),
                                     horizontalArrangement = Arrangement.SpaceBetween
                                 ) {
-                                    Text("ID: UTM214041BT1", style = MaterialTheme.typography.titleMedium)
-                                    Text("9:30", style = MaterialTheme.typography.titleMedium)
+                                    Spacer(Modifier.width(1.dp)) // lado izquierdo vacío
+                                    Row {
+                                        Text("UTM214041BT1", style = MaterialTheme.typography.titleMedium)
+                                        Spacer(Modifier.width(8.dp))
+                                        Icon(
+                                            imageVector = Icons.Default.Person,
+                                            contentDescription = "Perfil",
+                                            modifier = Modifier.size(32.dp)
+                                        )
+                                    }
                                 }
 
                                 Spacer(Modifier.height(24.dp))

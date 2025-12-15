@@ -2,7 +2,7 @@ package com.example.appsigo.theme
 
 import androidx.compose.ui.graphics.Color
 
-val primaryLight = Color(0xFF525A92)
+val primaryLight = Color(0xFF304FFE)
 val onPrimaryLight = Color(0xFFFFFFFF)
 val primaryContainerLight = Color(0xFFDEE0FF)
 val onPrimaryContainerLight = Color(0xFF3A4379)
@@ -217,10 +217,3 @@ val surfaceContainerLowDarkHighContrast = Color(0xFF1F1F25)
 val surfaceContainerDarkHighContrast = Color(0xFF303036)
 val surfaceContainerHighDarkHighContrast = Color(0xFF3B3B41)
 val surfaceContainerHighestDarkHighContrast = Color(0xFF46464C)
-
-
-
-
-
-
-

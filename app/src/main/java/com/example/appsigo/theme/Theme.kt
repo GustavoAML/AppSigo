@@ -13,8 +13,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 
 private val lightScheme = lightColorScheme(
-    primary = primaryLight,
-    onPrimary = onPrimaryLight,
+    background = Color(0xFFF5F5F5),       // fondo general
+    surface = Color(0xFFFFFFFF),          // tarjetas, cards
+    onBackground = Color(0xFF304FFE),     // texto sobre fondo
+    onSurface = Color(0xFF304FFE),        // texto sobre tarjetas
+    primary = Color(0xFF304FFE),          // azul institucional
+    onPrimary = Color(0xFFFFFFFF),         // texto sobre azul
+    //rimary = primaryLight,
+    //onPrimary = onPrimaryLight,
     primaryContainer = primaryContainerLight,
     onPrimaryContainer = onPrimaryContainerLight,
     secondary = secondaryLight,
@@ -29,10 +35,10 @@ private val lightScheme = lightColorScheme(
     onError = onErrorLight,
     errorContainer = errorContainerLight,
     onErrorContainer = onErrorContainerLight,
-    background = backgroundLight,
-    onBackground = onBackgroundLight,
-    surface = surfaceLight,
-    onSurface = onSurfaceLight,
+    //background = backgroundLight,
+    //onBackground = onBackgroundLight,
+    //surface = surfaceLight,
+    //onSurface = onSurfaceLight,
     surfaceVariant = surfaceVariantLight,
     onSurfaceVariant = onSurfaceVariantLight,
     outline = outlineLight,
@@ -239,7 +245,6 @@ private val highContrastDarkColorScheme = darkColorScheme(
     surfaceContainerHigh = surfaceContainerHighDarkHighContrast,
     surfaceContainerHighest = surfaceContainerHighestDarkHighContrast,
 )
-
 @Immutable
 data class ColorFamily(
     val color: Color,
@@ -256,7 +261,7 @@ val unspecified_scheme = ColorFamily(
 fun AppTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false,
     content: @Composable() () -> Unit
 ) {
   val colorScheme = when {

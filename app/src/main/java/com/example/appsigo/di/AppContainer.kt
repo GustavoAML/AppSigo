@@ -3,8 +3,10 @@ package com.example.appsigo.di
 import android.content.Context
 import com.example.appsigo.data.AuthRepository
 import com.example.appsigo.data.local.TokenManager
+import com.example.appsigo.data.model.UserResponse
 
 class AppContainer(appContext: Context) {
+    var usuarioActual: UserResponse? = null
 
     // 1. Inicializar TokenManager
     val tokenManager = TokenManager(appContext)

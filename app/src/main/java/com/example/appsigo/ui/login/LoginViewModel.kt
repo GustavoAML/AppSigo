@@ -15,7 +15,7 @@ data class LoginUiState(
     val isLoading: Boolean = false,
     val loginSuccess: Boolean = false,
     val errorMessage: String? = null,
-    val user: UserResponse? = null
+    val userResponse: UserResponse? = null
 )
 class LoginViewModel(
     private val repository: AuthRepository
@@ -58,7 +58,7 @@ class LoginViewModel(
                     _uiState.value.copy(
                         isLoading = false,
                         loginSuccess = true,
-                        user = userResponse,
+                        userResponse = userResponse,
                         errorMessage = null
                     )
                 },

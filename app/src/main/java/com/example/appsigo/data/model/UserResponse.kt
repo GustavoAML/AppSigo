@@ -16,7 +16,6 @@ data class UserResponse(
     val email: String,
     val id: Int,
     val username: String,
-    val password: String, // Aunque no se recomienda devolver la contraseña
     val roles: List<String>,
     val bearer: String
 )

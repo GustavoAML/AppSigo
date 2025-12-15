@@ -2,18 +2,33 @@ package com.example.appsigo.ui.historial
 
 import android.content.Intent
 import androidx.activity.ComponentActivity
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.appsigo.theme.primaryLight
+
 @Composable
 fun HistorialScreen(activity: ComponentActivity) {
-    Column(Modifier.fillMaxWidth().padding(16.dp)) {
-        Text("HISTORIAL ACADÉMICO", style = MaterialTheme.typography.titleLarge)
-        Spacer(Modifier.height(12.dp))
-        Card(Modifier.fillMaxWidth()) {
+    Column(Modifier.fillMaxWidth()
+        .padding(12.dp)
+        .background(MaterialTheme.colorScheme.background)) {
+        Text("HISTORIAL ACADÉMICO", style = MaterialTheme.typography.titleLarge,
+            color = primaryLight
+        )
+        Spacer(Modifier.height(8.dp))
+        Card(modifier = Modifier
+            .fillMaxWidth()
+            .padding(12.dp),
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.surface
+            ),
+            elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
+            shape = RoundedCornerShape(12.dp)) {
             Column(Modifier.padding(12.dp)) {
                 Text("4TO CUATRIMESTRE (SEP-DIC 2025)")
                 Text("ACTIVO")
@@ -25,7 +40,7 @@ fun HistorialScreen(activity: ComponentActivity) {
                 Spacer(Modifier.height(8.dp))
                 Text(
                     "Más información [+]",
-                    color = MaterialTheme.colorScheme.primary,
+                    color = primaryLight,
                     modifier = Modifier.clickable {
                         activity.startActivity(
                             Intent(activity, DetalleCuatrimestreActivity::class.java)
@@ -36,9 +51,16 @@ fun HistorialScreen(activity: ComponentActivity) {
             }
         }
 
-        Spacer(Modifier.height(12.dp))
+        Spacer(Modifier.height(8.dp))
 
-        Card(Modifier.fillMaxWidth()) {
+        Card(modifier = Modifier
+            .fillMaxWidth()
+            .padding(12.dp),
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.surface
+            ),
+            elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
+            shape = RoundedCornerShape(12.dp)) {
             Column(Modifier.padding(12.dp)) {
                 Text("3ER CUATRIMESTRE (MAY-AGO 2025)")
                 Text("FINALIZADO")
@@ -47,6 +69,17 @@ fun HistorialScreen(activity: ComponentActivity) {
                 Text("TUTOR: DRA. GRICELDA RODRIGUEZ R...")
                 Text("PROGRESO: 100%")
                 Text("DESEMPEÑO: ESTRATÉGICO (E)")
+                Spacer(Modifier.height(8.dp))
+                Text(
+                    "Más información [+]",
+                    color = primaryLight,
+                    modifier = Modifier.clickable {
+                        activity.startActivity(
+                            Intent(activity, DetalleCuatrimestreActivity::class.java)
+                                .putExtra("periodo", "4TO CUATRIMESTRE")
+                        )
+                    }
+                )
             }
         }
     }
